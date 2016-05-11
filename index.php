@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Silverado Cinema</title>
-
-    <style>
-	details{ font-family: 'Oswald'}
-
-
-    </style>
-  <link rel="stylesheet" href="style.css" />
-  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-  </head> 
-
-
-
-  <body>
-	
-    <header class="header">
-      <a href="index.php">
-      <div><img border="0" alt="home" src="logo.PNG" width=500 height=150/></div> 
-      </a>
-      
-    </header>
-
-    <nav class="nav">
-      <a>Home</a> | <a href="sessions.php">Out Now</a> | <a href="contact.php">Contact Us</a>
-    </nav>
-
-    <main class="main">
+<?php include('header.php');?>
 	<div id="box">
 
 		<table class="styledTable2">		
@@ -89,11 +58,11 @@
 				Welcome to the Silverado Cinema! Here at our organisation we strive to 
 				give our customers the best viewing experience possible for the lowest
 				prices and the greatest value. </br>
-				<img src="cinema.jpg" style= width=480; height=350; float: right;/></br>
+				<img src="static/img/cinema.jpg" style= width=480; height=350; float: right;/></br>
 				We have recently renovated our cinemas,upgrading our seating, giving our 
 				customers loads of leg room and the ultimate comfortable moovie experience.
 				We have installed state of the arc 3D projection facilities putting you inside
-				the movie to live it yourself!</br> <img src="3d.jpg" style=width=400; height=400; float:right;/></br>
+				the movie to live it yourself!</br> <img src="static/img/3d.jpg" style=width=400; height=400; float:right;/></br>
                                 Finally after installing beautiful new Dolby lighting and sound,
 				we have combined the "most powerful image and sound technologies, to transform
 				your visit into a completely captivating cinematic event."</br>
@@ -111,19 +80,8 @@
 	<div id="box"
 	<div class="discount"> ON MONDAYS AND TUESDAYS (ALL DAY) </br> AND ON MONDAYS TO FRIDAYS (1PM SESSION ONLY) </br>GET DISCOUNTED TICKETS!</br>
 	</div>
-    </main>
-
-    <footer class="footer">
-      &copy; Lucas O'Hare s3545867
-      <script>
-        document.write(new Date().getFullYear());
-      </script>.
-    </footer>
-
-  </body>
-</html>
-
-
+	
+<?php include('footer.php');?>
 
 
 
