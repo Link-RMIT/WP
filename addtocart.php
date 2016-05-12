@@ -5,7 +5,7 @@ session_start();
 
 
 
-$cart_item = new Booking($_POST);
+$cart_item = new Booking($_REQUEST);
 
 
 

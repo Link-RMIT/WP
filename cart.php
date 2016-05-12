@@ -9,9 +9,7 @@ session_start();
 
 
 <?php
-
-
-function main(){
+function cart(){
     if(!isset($_SESSION['cart'])) return;
     $cart = $_SESSION['cart'];
 
@@ -46,8 +44,34 @@ function main(){
     display_cart($cart);
     echo "Total: $cart->total";
 };
-
-include('header.php');
-main();
 ?>
-<?php include('footer.php') ?>
+
+<?php
+include('header.php');
+
+cart();
+
+echo '<hr />';
+    
+
+
+
+if(isset($_SESSION['customer_info'])){
+    $c = $_SESSION['customer_info'];
+    render('customer_info.php',array(
+	'name' => $c->name,
+	'email' => $c->email,
+	'phone' => $c->phone
+    ));
+}
+else{
+    render('customer_info.php',array(
+	'name' => '',
+	'email' => '',
+	'phone' => ''
+    ));
+}
+
+include('footer.php');
+?>
+

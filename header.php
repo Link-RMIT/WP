@@ -28,7 +28,7 @@
     </header>
 
     <nav class="nav">
-      <a>Home</a> | <a href="sessions.php">Out Now</a> | <a href="contact.php">Contact Us</a>
+      <a>Home</a> | <a href="sessions.php">Out Now</a> | <a href="contact.php">Contact Us</a> | <a href="cart.php">Shopping Cart</a> 
     </nav>
 
     <main class="main">

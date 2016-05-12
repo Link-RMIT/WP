@@ -231,7 +231,7 @@ class CustomerInfo{
     public $name;
     public $email;
     public $phone;
-    public function update_profile($form){
+    public function __construct($form){
 	$this->name = $form['name'];
 	$this->email = $form['email'];
 	$this->phone = $form['phone'];
@@ -239,14 +239,7 @@ class CustomerInfo{
 }
 
 
-
-
-
-    
-
-
 class ShoppingCart{
-    public $customer;
     public $items=array();
     public function add_item($item){
 	array_push($this->items,$item);
@@ -264,7 +257,11 @@ class ShoppingCart{
     public function __get($property) {
 	if($property == 'total')
 	    return $this->_total();
-    }    
+    }
+    public function clear(){
+	//unset($_SESSION['cart']);
+	$this->items = array();
+    }
 }
 
 //$json = json_encode( (array)$object );
