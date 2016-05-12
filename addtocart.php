@@ -20,7 +20,13 @@ $_SESSION['cart']->add_item($cart_item);
 
 ?>
 
+<a href="sessions.php">
+    continue shopping
+</a>
 
+<a href="cart.php">
+    shopping cart
+</a>
 
 
 
