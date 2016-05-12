@@ -55,17 +55,18 @@ $movie = MovieModel::get('id',$_GET['id']);
 		<details>
 			<summary>BOOK  NOW</summary>
 			<div id=box5">
-      			<form method="post" action="https://saturn.csit.rmit.edu.au/~e54061/wp/testbooking.php">
+<!--      			<form method="post" action="https://saturn.csit.rmit.edu.au/~e54061/wp/testbooking.php">-->
+			    <form method="post" action="addtocart.php">
 
 			<fieldset class="fieldset">
 				<legend>Booking Information - Fill Out Form Below</legend>
-
-					<label class="label">Movie:</label>
+					<!--<label class="label">Movie:</label>
 					<select name="movie" required="required" >
 						<option value="name">Batman V Superman: Dawn of Justice</option>
 
 					</select>
-					</br>
+					</br>-->
+				<input name="movie" type="hidden" value="<?= $movie->id ?>" />
 
 					<label class="label">Day</label>
 					<select name="day" id="day-picker" required="required" >

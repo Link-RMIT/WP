@@ -129,10 +129,26 @@ SessionModel::$sessions = array(
 );
 
 
+$_type_list = array("SA", "SP", "SC", "FA", "FC", "B1", "B2", "B3");
+
+function _get_price($type,$day,$time){
+    global $_type_list;
+    $_discount_price_list = array(12,10,8,25,20,20,20,20);
+    $_full_price_list = array(18,25,12,30,25,30,30,30);
+    
+    $index = array_search($type, $_type_list);
+    if (array_search(
+	$day,
+	array("Mon", "Tue", "Wed", "Thu", "Fir"))
+     && $time=='1pm'
+	    || ($day=="Mon" || $day=="Tue")){
+	return $_discount_price_list[$index];
+    }
+    return $_full_price_list[$index];
+}
+
+
 class Booking{
-    static private $_type_list = array("SA", "SP", "SC", "FA", "FC", "B1", "B2", "B3");
-    static private $_discount_price_list = array(12,10,8,25,20,2020,20);
-    static private $_full_price_list = array(18,25,12,30,25,30,30,30);
     
     public $session_id;
     public $items;
@@ -152,25 +168,58 @@ class Booking{
 	$this->session_id = $session_id;
 	$this->items = $items;
     }*/
+    public function row($i){
+	$s = SessionModel::get('id',$this->session_id);
+	$r = $this->items[$i];
 
-    public function __construct($form){
-	$this->session_id = $form['session_id'];
-	foreach (Booking::$_type_list as $type){
-	    $this->items[$type] = $form[$type];
+	return array(
+	    'row_number' => $i,
+	    'type' => $r['type'],
+	    'type_name' => Booking::$translate[$r['type']],
+	    'quantity' => $r['quantity'],
+	    'cost' => _get_price($r['type'],$s->day,$s->time),
+	    'subtotal' => _get_price($r['type'],$s->day,$s->time)*$r['quantity']
+	);
+    }
+    public function each_row($fun){
+	$c=count($this->items);
+	for($i=0;$i<$c;$i++){
+	    $fun($this->row($i));
 	}
+    }
+    private function _total(){
+	$sum=0;
+	$this->each_row(function($row)use(&$sum){
+	    $sum+=$row['subtotal'];
+	});
+	return $sum;
+    }
+    public function __get($property) {
+	if($property == 'total')
+	    return $this->_total();
+    }        
+    public function __construct($form){
+	global $_type_list;
+	foreach(SessionModel::$sessions as $s){
+	    if(
+		$s->movie_id == $form['movie']
+		&& $s->day == $form['day']
+		&& $s->time == $form['time']
+	    ){
+		$this->session_id = $s->id;
+		$this->items=array();
+		foreach ($_type_list as $type){
+		    if($form[$type]>0)
+			array_push($this->items,array(
+			    "type"=>$type,
+			    "quantity"=>intval($form[$type])
+			));
+		}
+	    }
+	}	
     }
     
-    private function _getPrice($type,$day,$time){
-	$index = array_search($type, Booking::$_type_list);
-	if (array_search(
-	    $day,
-	    array("Mon", "Tue", "Wed", "Thu", "Fir"))
-	 && $time=='1pm'
-		      || ($this->day=="Mon" || $this->day=="Tue")){
-	    return Booking::$_discount_price_list[$index];
-	}
-	return Booking::$_full_price_list[$index];
-    }
+
     /*public function __get($property) {
 	if($property == 'price')
 	    return _getPrice();
@@ -178,7 +227,7 @@ class Booking{
 }
 //$m = new Booking(1,'Standard-Full','Mon','5pm');
 
-class CustomerProfile{
+class CustomerInfo{
     public $name;
     public $email;
     public $phone;
@@ -189,15 +238,33 @@ class CustomerProfile{
     }
 }
 
+
+
+
+
+    
+
+
 class ShoppingCart{
-    public $profile;
+    public $customer;
     public $items=array();
-    public function addItem($item){
-	array_push($items,$item);
+    public function add_item($item){
+	array_push($this->items,$item);
     }
-    public function deleteItem($index){
-	array_splice($items, $index, $index);
+    public function delete_item($index){
+	array_splice($this->items, $index, 1);
     }
+    private function _total(){
+	$sum=0;
+	foreach($this->items as $i){
+	    $sum+=$i->total;
+	}
+	return $sum;
+    }
+    public function __get($property) {
+	if($property == 'total')
+	    return $this->_total();
+    }    
 }
 
 //$json = json_encode( (array)$object );
