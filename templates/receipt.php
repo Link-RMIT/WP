@@ -1,4 +1,13 @@
-<div>
+<style>
+#receipt{border: 1px solid black; 
+	border-collapse:collapse;
+	width:450px;
+	}
+</style>
+
+
+
+<div id="receipt">
     <table>
 	<tr><td><?= $args['customer']->name ?></td><td>Silverado</td></tr>
 	<tr><td><?= $args['customer']->email ?></td><td><?= $args['movie']->title?></td></tr>
