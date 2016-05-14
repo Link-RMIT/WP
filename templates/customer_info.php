@@ -1,4 +1,6 @@
 <div>
+<fieldset class="feildset">
+<legend>Please Enter Your Details Below:</legend>
     <script src="static/js/customer_info.js"></script>
     <form action="confirm.php" method="POST" id="customer-info">
 	Name:<input type="text" name="name" id="name" value="<?= $args['name'] ?>" /><span id="message-name"></span><br />
@@ -7,4 +9,5 @@
 	<br />
 	<input type='submit' value="Confirm" />
     </form>
+</fieldset>
 </div>
