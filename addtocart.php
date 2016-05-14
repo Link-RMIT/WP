@@ -19,15 +19,19 @@ $_SESSION['cart']->add_item($cart_item);
 
 
 ?>
-
-<a href="sessions.php">
-    continue shopping
-</a>
-
-<a href="cart.php">
-    shopping cart
-</a>
-
+<div id="box">
+	<div id="text">
+	Your items have been placed into your cart. </br>
+	You can now either: </br>
+	<a href="sessions.php">
+		continue shopping
+	</a></br>
+	or</br>
+	<a href="cart.php">
+		view your shopping cart
+	</a>
+	</div>
+</div>
 
 
 
