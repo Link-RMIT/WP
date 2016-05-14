@@ -1,3 +1,4 @@
+
 <?php
 include('models.php');
 include('functions.php');
@@ -48,13 +49,18 @@ function cart(){
 
 <?php
 include('header.php');
+?>
+<div id="box">
 
+<div class="box2">Shopping Cart Review</div>
+<?php
 cart();
 
 echo '<hr />';
-    
+?>
 
 
+<?php
 
 if(isset($_SESSION['customer_info'])){
     $c = $_SESSION['customer_info'];
@@ -71,7 +77,10 @@ else{
 	'phone' => ''
     ));
 }
+?>
 
+<?php
 include('footer.php');
 ?>
+</div>
 
