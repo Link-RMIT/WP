@@ -39,7 +39,17 @@ footer {
 footer * {
   vertical-align: middle;
 }
-      
+    
+#cart {
+  width:90%;
+  min-width: 260px;
+  max-width: 1076px;
+  margin: 0 auto;
+  border: 5px solid #585858;
+  background-color: rgb(25,25,25);
+  text-align: center;
+}
+	
 #box {
   width:90%;
   min-width: 260px;
@@ -48,7 +58,6 @@ footer * {
   border: 5px solid #585858;
   background-color: black;
   text-align: center;
-
 }
 
 .box2 {
@@ -154,6 +163,9 @@ label {
   font-weight:bold;
 }
 
+legend{font-size:25px;}
+
+
 .discount {
   font-family: 'PT Sans', sans-serif;
   font-size: 30px;
@@ -215,3 +227,8 @@ details{
   color:white; font-weight: normal;
 }
 
+#text {font-weight:bold; font-size:40px; padding:10px}
+
+table{
+	text-align:center; width: 90%
+}
