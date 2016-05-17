@@ -4,9 +4,9 @@
   - [X] Phone field must be an Australian mobile number
   - [X] Customer details (name, phone and email) are stored in the SESSION
 
-* 1B - PHP Conversion, Modularisation and SESSION[1/2]:
+* 1B - PHP Conversion, Modularisation and SESSION[2/2]:
   - [X] All main pages converted to PHP, incorporating modularisation
-  - [ ] SESSION information is maintained and available on every page
+  - [X] SESSION information is maintained and available on every page
 
 * 2 - Movie and Seat Selection Process: Javascript Component[3/5]:
   - [ ] Client can only select movies at a time when they are actually screening
@@ -29,9 +29,9 @@
   - [X] Customer can delete a reservation on the cart page
   - [X] Shopping cart is emptied once reservations are completed
 
-* 5 - Confirmation Page / Ticket Information[1/5]:
+* 5 - Confirmation Page / Ticket Information[2/5]:
   - [ ] Reservation information is stored server side in human-readable file
-  - [ ] Receipt(can be a ticket) contains all the specified information
+  - [X] Receipt(can be a ticket) contains all the specified information
   - [ ] Ticket layout is clear, lines up, can be printed
   - [X] Individual tickets are generated for every seat
   - [ ] Ticket design is very stylish, branded like a real cinema ticket
