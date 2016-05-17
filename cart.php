@@ -41,7 +41,7 @@ function cart(){
 	}
     }
     display_cart($cart);
-    echo "Total: $cart->total";
+    echo "Total: \$".number_format($cart->total,2);
 };
 ?>
 
