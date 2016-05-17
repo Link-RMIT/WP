@@ -10,10 +10,11 @@ else{
     $customer = $_SESSION['customer_info'];
 }
 if (!isset($_SESSION['cart'])){
-    $cart = $_SESSION['cart'];
     header( 'Location: sessions.php' );
     exit();
 }
+
+$cart = $_SESSION['cart'];
 
 file_put_contents('storage/record.json',json_encode(Array(
     "customer_info" => $customer,
