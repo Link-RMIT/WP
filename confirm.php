@@ -9,7 +9,12 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 else{
     $customer = $_SESSION['customer_info'];
 }
-$cart = $_SESSION['cart'];
+if (!isset($_SESSION['cart'])){
+    $cart = $_SESSION['cart'];
+    header( 'Location: sessions.php' );
+    exit();
+}
+
 file_put_contents('storage/record.json',json_encode(Array(
     "customer_info" => $customer,
     "shopping_cart" => $cart
