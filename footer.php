@@ -5,8 +5,9 @@
       <script>
         document.write(new Date().getFullYear());
       </script>.
-    </footer>
 
+    </footer>
+      <?php include_once("/home/eh1/e54061/public_html/wp/debug.php"); ?>
   </body>
 </html>
 

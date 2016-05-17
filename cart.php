@@ -2,8 +2,6 @@
 <?php
 include('models.php');
 include('functions.php');
-session_start();
-
 ?>
 
 
@@ -47,40 +45,32 @@ function cart(){
 };
 ?>
 
-<?php
-include('header.php');
-?>
+<?php include_once('header.php'); ?>
+
 <div id="box">
 
-<div class="box2">Shopping Cart Review</div>
-<?php
-cart();
+    <div class="box2">Shopping Cart Review</div>
+    <?php cart(); ?>
+    <hr />
+    <?php
 
-echo '<hr />';
-?>
-
-
-<?php
-
-if(isset($_SESSION['customer_info'])){
-    $c = $_SESSION['customer_info'];
-    render('customer_info.php',array(
-	'name' => $c->name,
-	'email' => $c->email,
-	'phone' => $c->phone
-    ));
-}
-else{
-    render('customer_info.php',array(
-	'name' => '',
-	'email' => '',
-	'phone' => ''
-    ));
-}
-?>
-
-<?php
-include('footer.php');
-?>
+    if(isset($_SESSION['customer_info'])){
+	$c = $_SESSION['customer_info'];
+	render('customer_info.php',array(
+	    'name' => $c->name,
+	    'email' => $c->email,
+	    'phone' => $c->phone
+	));
+    }
+    else{
+	render('customer_info.php',array(
+	    'name' => '',
+	    'email' => '',
+	    'phone' => ''
+	));
+    }
+    ?>
+    </div>
 </div>
 
+<?php include_once('footer.php'); ?>

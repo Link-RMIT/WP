@@ -1,6 +1,6 @@
 <?php
-include('functions.php');
-include('models.php');
+include_once('models.php');
+include_once('functions.php');
 session_start();
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $customer = new CustomerInfo($_REQUEST);
@@ -19,7 +19,7 @@ $cart = $_SESSION['cart'];
 	<?php foreach($cart->items as $booking){
 	    $session = SessionModel::get('id',$booking->session_id);
 	    $movie = MovieModel::get('id',$session->movie_id);
-   	    render('receipt.php',array(
+	    render('receipt.php',array(
 		'customer' => $customer,
 		'session' => $session,
 		'movie' => $movie,
@@ -37,5 +37,6 @@ $cart = $_SESSION['cart'];
 	    });
 	}?>
     </body>
+    <?php include_once("/home/eh1/e54061/public_html/wp/debug.php"); ?>    
 </html>
 

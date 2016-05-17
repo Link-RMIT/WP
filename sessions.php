@@ -1,6 +1,6 @@
 <?php
-include('header.php');
 include('models.php');
+include('header.php');
 ?>
 
 	<div id="box">
