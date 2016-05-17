@@ -4,7 +4,7 @@ include('header.php');
 ?>
 
 	<div id="box">
-		 <div class="box2">OUT NOW | <a href="action.php">ACTION</a>  | <a href="art.php">ART/FOREIGN</a> | <a href="kids.php">KIDS</a> | <a href="romcom.php">ROMANTIC COMEDY</a></div>
+		 <!--<div class="box2">OUT NOW | <a href="action.php">ACTION</a>  | <a href="art.php">ART/FOREIGN</a> | <a href="kids.php">KIDS</a> | <a href="romcom.php">ROMANTIC COMEDY</a></div>-->
 		 <?php foreach (MovieModel::$movies as $movie){?>
        		     <a href="booking.php?id=<?= $movie->id ?>">
 			 <div class="floating-box">
