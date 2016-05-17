@@ -10,6 +10,10 @@ else{
     $customer = $_SESSION['customer_info'];
 }
 $cart = $_SESSION['cart'];
+file_put_contents('storage/record.json',json_encode(Array(
+    "customer_info" => $customer,
+    "shopping_cart" => $cart
+)));
 ?>
 <!DOCTYPE html>
 <html>

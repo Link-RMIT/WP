@@ -29,8 +29,8 @@
   - [X] Customer can delete a reservation on the cart page
   - [X] Shopping cart is emptied once reservations are completed
 
-* 5 - Confirmation Page / Ticket Information[2/5]:
-  - [ ] Reservation information is stored server side in human-readable file
+* 5 - Confirmation Page / Ticket Information[3/5]:
+  - [X] Reservation information is stored server side in human-readable file
   - [X] Receipt(can be a ticket) contains all the specified information
   - [ ] Ticket layout is clear, lines up, can be printed
   - [X] Individual tickets are generated for every seat
