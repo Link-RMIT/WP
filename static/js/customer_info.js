@@ -61,6 +61,7 @@ $(function(){
 	    && check_email($('input#email').val().trim())
 	    && check_phone($('input#phone').val().trim())
 	) {
+	    if(!confirm("My contact details are correct!")) event.preventDefault();
 	    return;
 	}
 	alert('Invalid customer detail!');
