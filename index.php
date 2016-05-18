@@ -66,7 +66,7 @@
                                 Finally after installing beautiful new Dolby lighting and sound,
 				we have combined the "most powerful image and sound technologies, to transform
 				your visit into a completely captivating cinematic event."</br>
-				<img border="0" alt="home" src="dolby.PNG" width=250 height=90/></br>
+				<img border="0" alt="home" src="static/img/dolby.PNG" width=250 height=90/></br>
 				So do yourself a favour and bring your whole family down to Silverado Cinemas 
 				for the best family experience money can buy. Whatever you movie tastes, we will
 				have you covered!
